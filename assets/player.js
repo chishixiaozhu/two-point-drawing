@@ -26,5 +26,5 @@ async function exportVideo(){
 $('play').onclick=()=>playing?pause():play();$('restart').onclick=()=>{t=render(0);play()};$('seek').oninput=e=>{pause();t=render(+e.target.value)};$('export').hidden=!EXPORT_ENABLED;$('export').onclick=exportVideo;
 document.addEventListener('visibilitychange',()=>{if(busy&&document.hidden)fail('页面进入后台，请保持前台重新导出')});
 window.SAMPLE={ready:true,renderAt(time){if(busy)throw Error('正在导出');pause();t=render(time);return Mechanism.stateAt(t)},play,pause};
-window.animationInfo={version:'two-point-nc-1',shape:CONFIG.shape,color:CONFIG.color||'auto',duration:D,width:W,height:H,audio:'none',exportEnabled:EXPORT_ENABLED};window.exportVideo=exportVideo;render(0);
+window.animationInfo={version:'two-point-nc-2',shape:CONFIG.shape,color:CONFIG.color||'auto',duration:D,width:W,height:H,audio:'none',exportEnabled:EXPORT_ENABLED};window.exportVideo=exportVideo;render(0);
 })();
